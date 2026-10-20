@@ -24,6 +24,7 @@
     .tp-logo-card { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 34px 24px 26px; border-radius: 24px; background: #ffffff; border: 1px solid rgba(24,34,54,0.08); box-shadow: 0 14px 36px rgba(24,34,54,0.1); transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease; }
     .tp-logo-card:hover { transform: translateY(-6px); border-color: rgba(139,92,246,0.4); box-shadow: 0 24px 54px rgba(91,63,209,0.22); }
     .tp-logo-card img { height: 52px; width: auto; max-width: 78%; display: block; object-fit: contain; }
+    .tp-logo-card img.tp-logo-black { filter: brightness(0) saturate(100%); }
     .tp-logo-tag { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #5b6b8c; padding: 6px 14px; border-radius: 999px; background: #eef2fb; }
     .tp-note { position: relative; margin: 28px 0 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; color: #5b6b8c; }
     @media (max-width: 680px) { .tp-panel { padding: 36px 18px 32px; border-radius: 24px; } .tp-logos { grid-template-columns: 1fr; } }
@@ -161,7 +162,7 @@
 
           <div class="tp-logos">
             <div class="tp-logo-card">
-              <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/composio/default.svg" alt="Composio" loading="lazy">
+              <img class="tp-logo-black" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/composio/default.svg" alt="Composio" loading="lazy">
               <span class="tp-logo-tag"><span class="en">Integrations</span><span class="es">Integraciones</span></span>
             </div>
             <div class="tp-logo-card">
