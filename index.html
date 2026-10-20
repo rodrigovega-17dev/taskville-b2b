@@ -10,6 +10,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="motion.css">
+  <style>
+    /* Trusted partners */
+    .tp-section { padding: 28px 0 56px; position: relative; z-index: 2; }
+    .tp-panel { position: relative; overflow: hidden; text-align: center; padding: 48px 32px 44px; border-radius: 32px; background: linear-gradient(180deg, rgba(255,255,255,0.82), rgba(255,255,255,0.58)); border: 1px solid rgba(255,255,255,0.9); box-shadow: 0 30px 80px rgba(24,34,54,0.14), inset 0 1px 0 rgba(255,255,255,0.9); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+    .tp-panel::before { content: ''; position: absolute; inset: -40% 20% auto 20%; height: 260px; background: radial-gradient(closest-side, rgba(139,92,246,0.22), rgba(59,130,246,0.12) 55%, transparent 75%); filter: blur(10px); pointer-events: none; }
+    .tp-kicker { position: relative; display: inline-flex; align-items: center; gap: 10px; padding: 8px 18px; border-radius: 999px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #5b3fd1; background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.25); }
+    .tp-kicker i { width: 8px; height: 8px; border-radius: 50%; background: #6ee7b7; box-shadow: 0 0 0 4px rgba(110,231,183,0.3); display: inline-block; }
+    .tp-title { position: relative; margin: 18px auto 10px; max-width: 760px; font-family: 'Space Grotesk', sans-serif; font-size: clamp(26px, 3.4vw, 40px); line-height: 1.1; letter-spacing: -0.02em; color: #182236; }
+    .tp-title .tp-grad { background: linear-gradient(135deg, #8b5cf6, #3b82f6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .tp-sub { position: relative; margin: 0 auto 34px; max-width: 620px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 17px; line-height: 1.55; color: #3d4a66; }
+    .tp-logos { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 340px)); gap: 24px; justify-content: center; }
+    .tp-logo-card { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 34px 24px 26px; border-radius: 24px; background: #ffffff; border: 1px solid rgba(24,34,54,0.08); box-shadow: 0 14px 36px rgba(24,34,54,0.1); transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease; }
+    .tp-logo-card:hover { transform: translateY(-6px); border-color: rgba(139,92,246,0.4); box-shadow: 0 24px 54px rgba(91,63,209,0.22); }
+    .tp-logo-card img { height: 52px; width: auto; max-width: 78%; display: block; object-fit: contain; }
+    .tp-logo-tag { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #5b6b8c; padding: 6px 14px; border-radius: 999px; background: #eef2fb; }
+    .tp-note { position: relative; margin: 28px 0 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; color: #5b6b8c; }
+    @media (max-width: 680px) { .tp-panel { padding: 36px 18px 32px; border-radius: 24px; } .tp-logos { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body data-lang="en">
   <!-- Diffused / Blurred Parallax Daylight Sky with Soft Dreamy Clouds -->
@@ -125,6 +143,30 @@
               <span class="es">Piso 1: Contenido e Investigación</span>
               <small class="en">● Monthly Insights Compiled</small>
               <small class="es">● Reporte mensual compilado</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trusted Partners -->
+    <section class="tp-section" id="partners" aria-label="Trusted partners">
+      <div class="wrap">
+        <div class="tp-panel">
+          <span class="tp-kicker"><i></i><span class="en">Trusted partners</span><span class="es">Socios de confianza</span></span>
+          <h2 class="tp-title en">Built with the platforms <span class="tp-grad">teams already rely on.</span></h2>
+          <h2 class="tp-title es">Construido con las plataformas <span class="tp-grad">en las que ya confían los equipos.</span></h2>
+          <p class="tp-sub en">TaskVille connects to the tools and infrastructure your operations already run on, so agents work where your team works.</p>
+          <p class="tp-sub es">TaskVille se conecta con las herramientas e infraestructura que tu operación ya usa, para que los agentes trabajen donde trabaja tu equipo.</p>
+
+          <div class="tp-logos">
+            <div class="tp-logo-card">
+              <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/composio/default.svg" alt="Composio" loading="lazy">
+              <span class="tp-logo-tag"><span class="en">Integrations</span><span class="es">Integraciones</span></span>
+            </div>
+            <div class="tp-logo-card">
+              <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/aws/default.svg" alt="AWS" loading="lazy">
+              <span class="tp-logo-tag"><span class="en">Cloud</span><span class="es">Nube</span></span>
             </div>
           </div>
         </div>
