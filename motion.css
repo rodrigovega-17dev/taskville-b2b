@@ -1,34 +1,76 @@
-/* TaskVille motion layer v2. Hidden states only exist under .motion-ready, and JS never hides what is already in view, so there is no flash. */
+/* TaskVille motion layer v3 */
 a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #3b82f6;outline-offset:3px;border-radius:4px}
-.tv-progress{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 0;transform:scaleX(0);background:linear-gradient(90deg,#8b5cf6,#3b82f6,#67e8f9);z-index:9999;pointer-events:none}
-@media (prefers-reduced-motion:no-preference){
-@keyframes tvRise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
-@keyframes tvFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-@keyframes tvDrift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-@keyframes tvPulse{0%{box-shadow:0 0 0 0 rgba(110,231,183,.65)}100%{box-shadow:0 0 0 12px rgba(110,231,183,0)}}
-@keyframes tvShine{from{left:-60%}to{left:140%}}
-.hero-copy>*{animation:tvRise .8s cubic-bezier(.2,.7,.2,1) both}
-.hero-copy>:nth-child(2){animation-delay:.08s}
-.hero-copy>:nth-child(3){animation-delay:.16s}
-.hero-copy>:nth-child(4){animation-delay:.24s}
-.hero-copy>:nth-child(5){animation-delay:.32s}
-.hero-copy>:nth-child(6){animation-delay:.4s}
-.hero-visual{animation:tvRise 1s .2s cubic-bezier(.2,.7,.2,1) both}
-.tower-freestanding{animation:tvFloat 7s ease-in-out infinite}
-.gradient-text{background-size:220% 220%;animation:tvDrift 9s ease infinite}
-.badge-pill .dot{animation:tvPulse 2s ease-out infinite}
-.floor-callout{animation:tvFloat 6s ease-in-out infinite}
-.floor-callout.callout-ops{animation-delay:-2s}
-.floor-callout.callout-marketing{animation-delay:-4s}
-.btn{position:relative;overflow:hidden}
-.btn-primary::after{content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg);pointer-events:none}
-.btn-primary:hover::after{animation:tvShine .8s ease}
-.btn{transition:transform .2s ease,box-shadow .2s ease}
-.btn:hover{transform:translateY(-2px)}
-.motion-ready .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease var(--d,0s),transform .7s cubic-bezier(.2,.7,.2,1) var(--d,0s)}
-.motion-ready .reveal.is-visible{opacity:1;transform:none}
-.tilt{transition:transform .18s ease-out,box-shadow .25s ease;will-change:transform}
-.motion-ready .tilt.is-done{transition:transform .18s ease-out,box-shadow .25s ease}
-.pricing-card.popular{animation:tvGlow 4s ease-in-out infinite}
-@keyframes tvGlow{0%,100%{box-shadow:0 10px 40px rgba(139,92,246,.18)}50%{box-shadow:0 14px 56px rgba(59,130,246,.34)}}
+
+/* ---- Header flicker fix: no backdrop-filter, no blurred fixed layer ---- */
+.header{background:rgba(255,255,255,.97);-webkit-backdrop-filter:none;backdrop-filter:none;transition:box-shadow .25s ease}
+.header.is-scrolled{box-shadow:0 8px 24px rgba(18,64,110,.12)}
+.badge-pill,.btn-secondary,.floor-callout,.surface-panel,footer{-webkit-backdrop-filter:none;backdrop-filter:none}
+.daylight-parallax-wrapper{filter:none;transform:none}
+.day-cloud{will-change:transform}
+.sun-glow{will-change:transform,opacity}
+
+/* ---- Hero tower SVG ---- */
+.tower-freestanding img{display:none}
+.tower-freestanding .tv-svg{width:100%;height:auto;display:block;overflow:visible}
+.tv-svg *{transform-box:fill-box}
+.tv-svg .ring,.tv-svg .ok-ring{transform-origin:50% 50%}
+.tv-svg .tv-rise{transform-origin:50% 100%}
+.tv-progress{position:fixed;left:0;top:0;height:3px;width:100%;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,#3b82f6,#059669);z-index:60;pointer-events:none;will-change:transform}
+.btn-primary{position:relative;overflow:hidden}
+.btn-primary::after{content:'';position:absolute;top:0;left:-70%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:left .6s ease;pointer-events:none}
+.btn-primary:hover::after{left:130%}
+.badge-pill .dot{position:relative}
+.badge-pill .dot::after{content:'';position:absolute;inset:0;border-radius:50%;background:#059669}
+.pricing-card.popular::before{content:'';position:absolute;inset:-2px;border-radius:inherit;box-shadow:0 0 38px rgba(59,130,246,.6);opacity:.3;pointer-events:none}
+
+@media (prefers-reduced-motion: no-preference){
+  .hero-copy>*{animation:tvUp .8s cubic-bezier(.2,.7,.2,1) both}
+  .hero-copy>*:nth-child(1){animation-delay:.05s}
+  .hero-copy>*:nth-child(2){animation-delay:.15s}
+  .hero-copy>*:nth-child(3){animation-delay:.15s}
+  .hero-copy>*:nth-child(4){animation-delay:.28s}
+  .hero-copy>*:nth-child(5){animation-delay:.28s}
+  .hero-copy>*:nth-child(6){animation-delay:.42s}
+  .hero-copy>*:nth-child(7){animation-delay:.56s}
+  @keyframes tvUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+  .gradient-text{background-image:linear-gradient(110deg,#1d4ed8,#3b82f6,#059669,#3b82f6,#1d4ed8);background-size:220% 100%;animation:tvDrift2 9s linear infinite}
+  @keyframes tvDrift2{from{background-position:0% 0}to{background-position:220% 0}}
+
+  .badge-pill .dot::after{animation:tvPing 1.8s ease-out infinite}
+  @keyframes tvPing{0%{transform:scale(1);opacity:.7}100%{transform:scale(3.2);opacity:0}}
+  .pricing-card.popular::before{animation:tvGlow 3s ease-in-out infinite}
+  @keyframes tvGlow{0%,100%{opacity:.2}50%{opacity:.75}}
+
+  .floor-callout{animation:tvFloat 5s ease-in-out infinite}
+  .callout-ops{animation-delay:-1.6s}
+  .callout-marketing{animation-delay:-3.2s}
+  @keyframes tvFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+  .tv-svg .tv-rise{animation:tvRise 1s cubic-bezier(.2,.8,.2,1) both}
+  .tv-svg .r0{animation-delay:.05s}.tv-svg .r1{animation-delay:.2s}.tv-svg .r2{animation-delay:.5s}.tv-svg .r3{animation-delay:.8s}.tv-svg .r4{animation-delay:1.1s}
+  @keyframes tvRise{from{opacity:0;transform:translateY(50px) scaleY(.7)}to{opacity:1;transform:none}}
+  .tv-svg .win{animation:tvWin 5s ease-in-out infinite;animation-delay:var(--d,0s)}
+  @keyframes tvWin{0%,100%{opacity:1}45%{opacity:.5}60%{opacity:1}}
+  .tv-svg .ag{animation:tvBob 2.2s ease-in-out infinite;animation-delay:var(--d,0s)}
+  @keyframes tvBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+  .tv-svg .beacon{animation:tvBeacon 1.4s ease-in-out infinite}
+  @keyframes tvBeacon{0%,100%{opacity:.55}50%{opacity:1}}
+  .tv-svg .ring{animation:tvRing 1.4s ease-out infinite}
+  .tv-svg .ok-ring{animation:tvRing 2s ease-out infinite}
+  @keyframes tvRing{0%{transform:scale(1);opacity:.8}100%{transform:scale(2.6);opacity:0}}
+  .tv-svg .shine{animation:tvShine 6s ease-in-out infinite 2.2s}
+  @keyframes tvShine{0%{transform:translateX(-30px);opacity:0}15%{opacity:1}60%{opacity:1}100%{transform:translateX(330px);opacity:0}}
+  .tv-svg .flow{animation:tvFlow .9s linear infinite}
+  @keyframes tvFlow{to{stroke-dashoffset:-14}}
+  .tv-svg .pk{opacity:0;animation:tvPk 4.2s linear infinite;animation-delay:var(--d,0s)}
+  @keyframes tvPk{0%{opacity:0;transform:translateY(0)}8%{opacity:1}88%{opacity:1}100%{opacity:0;transform:translateY(-292px)}}
+  .tv-svg .tv-cloud{animation:tvCloud 14s ease-in-out infinite alternate}
+  .tv-svg .tv-cloud.b{animation-duration:18s;animation-direction:alternate-reverse}
+  @keyframes tvCloud{from{transform:translateX(-16px)}to{transform:translateX(26px)}}
+  .tv-svg .tw{animation:tvTw 2.6s ease-in-out infinite;animation-delay:var(--d,0s)}
+  @keyframes tvTw{0%,100%{opacity:.2}50%{opacity:1}}
+
+  .motion-ready .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:var(--rd,0s)}
+  .motion-ready .reveal.is-visible{opacity:1;transform:none}
 }
