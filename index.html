@@ -30,7 +30,7 @@
     .ov-stage { position: relative; width: 100%; aspect-ratio: 1536 / 900; overflow: hidden; border-radius: 20px; background: #182236; }
     .ov-stage img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .7s ease; }
     .ov-stage img.is-active { opacity: 1; }
-    .ov-toggle { display: flex; justify-content: center; gap: 6px; margin: 16px auto 0; padding: 5px; width: fit-content; border-radius: 999px; background: rgba(24,34,54,0.08); border: 1px solid rgba(24,34,54,0.08); }
+    .ov-toggle { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px; margin: 16px auto 36px; padding: 5px; width: fit-content; max-width: 100%; border-radius: 999px; background: rgba(24,34,54,0.08); border: 1px solid rgba(24,34,54,0.08); }
     .ov-toggle button { position: relative; overflow: hidden; border: 0; cursor: pointer; padding: 10px 22px; border-radius: 999px; background: transparent; color: #3d4a66; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 700; transition: background .3s ease, color .3s ease, box-shadow .3s ease; }
     .ov-toggle button[aria-pressed="true"] { background: linear-gradient(135deg, #8b5cf6, #3b82f6); color: #ffffff; box-shadow: 0 6px 16px rgba(91,63,209,0.3); }
   </style>
@@ -191,10 +191,12 @@
             <div class="ov-stage">
               <img class="is-active" data-view="0" src="https://7c29b10336c7c5ef7e59bc7209cbaf71.cdn.bubble.io/f1792487210861x729834624181186200/Captura%20de%20pantalla%202026-10-20%20a%20la%28s%29%203.03.02%E2%80%AFa.m..png" alt="TaskVille pixel-art virtual office with agents at their desks" width="1536" height="904">
               <img data-view="1" src="https://7c29b10336c7c5ef7e59bc7209cbaf71.cdn.bubble.io/f1792534249159x687927094074796200/Captura%20de%20pantalla%202026-10-20%20a%20la%28s%29%204.10.41%E2%80%AFp.m..png" alt="TaskVille office map view showing agents, connected apps and live energy" width="1536" height="886" loading="lazy">
+              <img data-view="2" src="https://7c29b10336c7c5ef7e59bc7209cbaf71.cdn.bubble.io/f1792513807592x309301202110757760/taskville-agents-view.jpg" alt="TaskVille agents view with the team on the map and a live chat with an agent" width="1536" height="920" loading="lazy">
             </div>
             <div class="ov-toggle" role="group" aria-label="Office view">
               <button type="button" data-view="0" aria-pressed="true"><span class="en">Office floor</span><span class="es">Piso de oficina</span></button>
               <button type="button" data-view="1" aria-pressed="false"><span class="en">Team map</span><span class="es">Mapa del equipo</span></button>
+              <button type="button" data-view="2" aria-pressed="false"><span class="en">Agents &amp; chat</span><span class="es">Agentes y chat</span></button>
             </div>
           </div>
 
