@@ -1,0 +1,47 @@
+/* Motion layer: only active when JS adds .motion-ready and the user has no reduced-motion preference */
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .motion-ready .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+    will-change: opacity, transform;
+  }
+
+  .motion-ready .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .motion-ready .float {
+    animation: taskvilleFloat 6s ease-in-out infinite;
+  }
+
+  @keyframes taskvilleFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  details[open] > :not(summary) {
+    animation: taskvilleFadeIn 0.35s ease;
+  }
+
+  @keyframes taskvilleFadeIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  .motion-ready .card:hover,
+  .motion-ready .metric:hover {
+    transform: translateY(-4px);
+    transition: transform 0.25s ease;
+  }
+}
