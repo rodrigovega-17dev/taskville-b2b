@@ -20,12 +20,15 @@
     .tp-title { position: relative; margin: 18px auto 10px; max-width: 760px; font-family: 'Space Grotesk', sans-serif; font-size: clamp(26px, 3.4vw, 40px); line-height: 1.1; letter-spacing: -0.02em; color: #182236; }
     .tp-title .tp-grad { background: linear-gradient(135deg, #8b5cf6, #3b82f6); -webkit-background-clip: text; background-clip: text; color: transparent; }
     .tp-sub { position: relative; margin: 0 auto 34px; max-width: 620px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 17px; line-height: 1.55; color: #3d4a66; }
-    .tp-logos { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 340px)); gap: 24px; justify-content: center; }
-    .tp-logo-card { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 34px 24px 26px; border-radius: 24px; background: #ffffff; border: 1px solid rgba(24,34,54,0.08); box-shadow: 0 14px 36px rgba(24,34,54,0.1); transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease; }
+    .tp-logos { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 360px)); gap: 24px; justify-content: center; }
+    .tp-logo-card { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 34px 24px 26px; border-radius: 24px; background: #ffffff; border: 1px solid rgba(24,34,54,0.08); box-shadow: 0 14px 36px rgba(24,34,54,0.1); text-decoration: none; color: inherit; transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease; }
     .tp-logo-card:hover { transform: translateY(-6px); border-color: rgba(139,92,246,0.4); box-shadow: 0 24px 54px rgba(91,63,209,0.22); }
     .tp-logo-card img { height: 52px; width: auto; max-width: 78%; display: block; object-fit: contain; }
     .tp-logo-card img.tp-logo-black { filter: brightness(0) saturate(100%); }
-    .tp-logo-tag { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #5b6b8c; padding: 6px 14px; border-radius: 999px; background: #eef2fb; }
+    .tp-member { display: inline-flex; align-items: center; gap: 8px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #0f7a55; padding: 5px 12px; border-radius: 999px; background: rgba(110,231,183,0.22); border: 1px solid rgba(16,185,129,0.35); }
+    .tp-member i { width: 7px; height: 7px; border-radius: 50%; background: #10b981; display: inline-block; }
+    .tp-program { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; letter-spacing: -0.01em; color: #182236; line-height: 1.2; }
+    .tp-logo-tag { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #5b3fd1; padding: 7px 14px; border-radius: 999px; background: #eef2fb; }
     .tp-note { position: relative; margin: 28px 0 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; color: #5b6b8c; }
     @media (max-width: 680px) { .tp-panel { padding: 36px 18px 32px; border-radius: 24px; } .tp-logos { grid-template-columns: 1fr; } }
   </style>
@@ -151,24 +154,28 @@
     </section>
 
     <!-- Trusted Partners -->
-    <section class="tp-section" id="partners" aria-label="Trusted partners">
+    <section class="tp-section" id="partners" aria-label="Startup programs">
       <div class="wrap">
         <div class="tp-panel">
-          <span class="tp-kicker"><i></i><span class="en">Trusted partners</span><span class="es">Socios de confianza</span></span>
-          <h2 class="tp-title en">Built with the platforms <span class="tp-grad">teams already rely on.</span></h2>
-          <h2 class="tp-title es">Construido con las plataformas <span class="tp-grad">en las que ya confían los equipos.</span></h2>
-          <p class="tp-sub en">TaskVille connects to the tools and infrastructure your operations already run on, so agents work where your team works.</p>
-          <p class="tp-sub es">TaskVille se conecta con las herramientas e infraestructura que tu operación ya usa, para que los agentes trabajen donde trabaja tu equipo.</p>
+          <span class="tp-kicker"><i></i><span class="en">Backed by startup programs</span><span class="es">Respaldados por programas para startups</span></span>
+          <h2 class="tp-title en">TaskVille is part of the startup programs of <span class="tp-grad">Composio and AWS.</span></h2>
+          <h2 class="tp-title es">TaskVille forma parte de los programas para startups de <span class="tp-grad">Composio y AWS.</span></h2>
+          <p class="tp-sub en">We build on the same infrastructure and integration layer that fast-growing teams trust, so your agents connect to your tools reliably and scale with you.</p>
+          <p class="tp-sub es">Construimos sobre la misma infraestructura y capa de integraciones en la que confían los equipos de mayor crecimiento, para que tus agentes se conecten a tus herramientas de forma confiable y escalen contigo.</p>
 
           <div class="tp-logos">
-            <div class="tp-logo-card">
+            <a class="tp-logo-card" href="https://composio.dev/startups" target="_blank" rel="noopener">
+              <span class="tp-member"><i></i><span class="en">Program member</span><span class="es">Miembro del programa</span></span>
               <img class="tp-logo-black" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/composio/default.svg" alt="Composio" loading="lazy">
-              <span class="tp-logo-tag"><span class="en">Integrations</span><span class="es">Integraciones</span></span>
-            </div>
-            <div class="tp-logo-card">
+              <span class="tp-program">Composio for Startups</span>
+              <span class="tp-logo-tag"><span class="en">250+ integrations →</span><span class="es">250+ integraciones →</span></span>
+            </a>
+            <a class="tp-logo-card" href="https://aws.amazon.com/startups" target="_blank" rel="noopener">
+              <span class="tp-member"><i></i><span class="en">Program member</span><span class="es">Miembro del programa</span></span>
               <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/aws/default.svg" alt="AWS" loading="lazy">
-              <span class="tp-logo-tag"><span class="en">Cloud</span><span class="es">Nube</span></span>
-            </div>
+              <span class="tp-program">AWS Startups</span>
+              <span class="tp-logo-tag"><span class="en">Cloud infrastructure →</span><span class="es">Infraestructura en la nube →</span></span>
+            </a>
           </div>
         </div>
       </div>
