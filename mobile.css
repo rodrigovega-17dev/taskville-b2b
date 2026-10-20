@@ -1,0 +1,97 @@
+/* TaskVille Business mobile layer v1 (max-width 760px) */
+html { scroll-padding-top: 72px; }
+
+.m-cta { display: none; }
+
+@media (max-width: 760px) {
+  body { font-size: 16px; }
+  .daylight-parallax-wrapper { filter: none; }
+  .sun-glow { width: 320px; height: 320px; top: -80px; right: -80px; filter: blur(20px); }
+  .day-cloud { filter: none; box-shadow: none; }
+  .wrap { width: calc(100% - 32px); }
+  section { padding: 56px 0; }
+  h1 { font-size: 36px; line-height: 1.08; }
+  h2 { font-size: 28px; line-height: 1.15; }
+  h3 { font-size: 19px; }
+
+  /* Header */
+  .nav { height: 64px; gap: 8px; }
+  .brand { font-size: 0; gap: 0; }
+  .brand img { width: 32px; height: 32px; }
+  .nav-right { gap: 8px; }
+  .lang-switcher button { min-width: 40px; min-height: 36px; padding: 6px 10px; }
+  .nav-right .btn-primary { padding: 10px 14px; font-size: 13px; min-height: 40px; }
+
+  /* Hero */
+  .hero { padding-top: 24px; padding-bottom: 36px; }
+  .hero-layout { gap: 28px; }
+  .badge-pill { font-size: 12px; padding: 6px 12px; line-height: 1.3; text-align: left; }
+  .hero-copy h1 { margin: 14px 0 16px; }
+  .hero-copy p.lead { font-size: 16px; line-height: 1.6; margin-bottom: 22px; }
+  .hero-copy > div:not(.badge-pill):not(.hero-metrics) { flex-direction: column !important; gap: 10px !important; }
+  .hero-copy > div:not(.badge-pill):not(.hero-metrics) .btn { width: 100%; }
+  .hero-metrics { flex-direction: column; gap: 14px; padding-top: 20px; margin-top: 22px; }
+  .hero-metric-item { padding-left: 14px; border-left: 3px solid #8b5cf6; }
+  .hero-metric-item h4 { font-size: 18px; }
+  .hm-sub { font-size: 13px; }
+  .tower-freestanding { width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 8px; }
+  .tower-freestanding .floor-callout { display: block !important; position: static !important; white-space: normal; border-radius: 14px; padding: 12px 14px; box-shadow: 0 6px 16px rgba(18,64,110,0.1); }
+
+  /* Startup programs strip */
+  .tp-section { padding: 8px 0 20px; }
+  .tp-strip { border-radius: 20px; padding: 14px; gap: 10px; }
+  .tp-chip { width: 100%; justify-content: space-between; padding: 10px 14px; min-height: 48px; }
+  .tp-chip b { font-size: 14px; }
+
+  /* Office viewer */
+  .surface-panel { padding: 24px 16px; border-radius: 18px; }
+  .section-intro { margin-bottom: 26px; }
+  .section-intro p { font-size: 16px; }
+  .ov-stage { aspect-ratio: 4 / 3; border-radius: 14px; }
+  .ov-toggle { display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; margin: 14px 0 26px; padding: 4px; }
+  .ov-toggle button { padding: 11px 4px; font-size: 12.5px; line-height: 1.2; min-height: 44px; }
+  .office-meta-bar { gap: 12px; margin-top: 20px; }
+  .meta-box { padding: 16px; }
+
+  /* Cards */
+  .three-card-grid { gap: 14px; }
+  .team-card, .workflow-card { padding: 22px 20px; }
+  .team-card:hover { transform: none; }
+  .icon-box { margin-bottom: 14px; }
+
+  /* Pilot */
+  .steps-grid { margin-top: 24px; gap: 12px; }
+  .step-box { padding: 18px; }
+
+  /* Pricing */
+  .pricing-tier-group { margin-top: 28px !important; }
+  .pricing-title-row { margin-bottom: 14px; }
+  .pricing-title-row h3 { font-size: 13px; }
+  .pricing-grid { gap: 16px; }
+  .pricing-card { padding: 26px 22px; }
+  .pricing-card.popular { transform: none; order: -1; }
+  .popular-tag { left: 22px; }
+  .price-num { font-size: 34px; }
+  .feature-list li { font-size: 14.5px; }
+  .pricing-card .btn { width: 100%; margin-top: auto; }
+  .award-card { padding: 24px 20px; margin-top: 32px; }
+  .award-card img { width: 56px; height: 56px; }
+  .award-card h3 { font-size: 20px; }
+
+  /* FAQ */
+  .faq-item summary { padding: 16px; font-size: 16px; gap: 12px; }
+  .faq-content { padding: 0 16px 18px; font-size: 14.5px; }
+
+  /* Final CTA */
+  .final-cta { padding: 36px 20px; }
+  .final-cta .btn { width: 100%; }
+  .final-cta p { font-size: 16px; }
+
+  /* Footer */
+  footer { padding: 28px 0 100px; }
+  .footer-content { flex-direction: column; text-align: center; gap: 12px; }
+  footer p { font-size: 13px; line-height: 1.6; }
+
+  /* Sticky booking bar */
+  .m-cta { position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); z-index: 60; display: flex; align-items: center; justify-content: center; min-height: 52px; padding: 14px 18px; border-radius: 16px; background: linear-gradient(135deg, #8b5cf6, #3b82f6); color: #ffffff; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 16px; text-decoration: none; box-shadow: 0 12px 28px rgba(91, 63, 209, 0.35); }
+}
