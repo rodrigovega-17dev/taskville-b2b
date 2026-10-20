@@ -11,26 +11,28 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="motion.css">
   <style>
-    /* Trusted partners */
-    .tp-section { padding: 28px 0 56px; position: relative; z-index: 2; }
-    .tp-panel { position: relative; overflow: hidden; text-align: center; padding: 48px 32px 44px; border-radius: 32px; background: linear-gradient(180deg, rgba(255,255,255,0.82), rgba(255,255,255,0.58)); border: 1px solid rgba(255,255,255,0.9); box-shadow: 0 30px 80px rgba(24,34,54,0.14), inset 0 1px 0 rgba(255,255,255,0.9); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
-    .tp-panel::before { content: ''; position: absolute; inset: -40% 20% auto 20%; height: 260px; background: radial-gradient(closest-side, rgba(139,92,246,0.22), rgba(59,130,246,0.12) 55%, transparent 75%); filter: blur(10px); pointer-events: none; }
-    .tp-kicker { position: relative; display: inline-flex; align-items: center; gap: 10px; padding: 8px 18px; border-radius: 999px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #5b3fd1; background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.25); }
-    .tp-kicker i { width: 8px; height: 8px; border-radius: 50%; background: #6ee7b7; box-shadow: 0 0 0 4px rgba(110,231,183,0.3); display: inline-block; }
-    .tp-title { position: relative; margin: 18px auto 10px; max-width: 760px; font-family: 'Space Grotesk', sans-serif; font-size: clamp(26px, 3.4vw, 40px); line-height: 1.1; letter-spacing: -0.02em; color: #182236; }
-    .tp-title .tp-grad { background: linear-gradient(135deg, #8b5cf6, #3b82f6); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .tp-sub { position: relative; margin: 0 auto 34px; max-width: 620px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 17px; line-height: 1.55; color: #3d4a66; }
-    .tp-logos { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 360px)); gap: 24px; justify-content: center; }
-    .tp-logo-card { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 34px 24px 26px; border-radius: 24px; background: #ffffff; border: 1px solid rgba(24,34,54,0.08); box-shadow: 0 14px 36px rgba(24,34,54,0.1); text-decoration: none; color: inherit; transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease; }
-    .tp-logo-card:hover { transform: translateY(-6px); border-color: rgba(139,92,246,0.4); box-shadow: 0 24px 54px rgba(91,63,209,0.22); }
-    .tp-logo-card img { height: 52px; width: auto; max-width: 78%; display: block; object-fit: contain; }
-    .tp-logo-card img.tp-logo-black { filter: brightness(0) saturate(100%); }
-    .tp-member { display: inline-flex; align-items: center; gap: 8px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #0f7a55; padding: 5px 12px; border-radius: 999px; background: rgba(110,231,183,0.22); border: 1px solid rgba(16,185,129,0.35); }
-    .tp-member i { width: 7px; height: 7px; border-radius: 50%; background: #10b981; display: inline-block; }
-    .tp-program { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; letter-spacing: -0.01em; color: #182236; line-height: 1.2; }
-    .tp-logo-tag { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #5b3fd1; padding: 7px 14px; border-radius: 999px; background: #eef2fb; }
-    .tp-note { position: relative; margin: 28px 0 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; color: #5b6b8c; }
-    @media (max-width: 680px) { .tp-panel { padding: 36px 18px 32px; border-radius: 24px; } .tp-logos { grid-template-columns: 1fr; } }
+    /* Trusted partners strip */
+    .tp-section { padding: 16px 0 28px; position: relative; z-index: 2; }
+    .tp-strip { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px 22px; padding: 12px 22px; border-radius: 999px; background: rgba(255,255,255,0.8); border: 1px solid rgba(255,255,255,0.95); box-shadow: 0 10px 30px rgba(24,34,54,0.1), inset 0 1px 0 rgba(255,255,255,0.9); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+    .tp-label { display: inline-flex; align-items: center; gap: 10px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #5b3fd1; }
+    .tp-label i { width: 8px; height: 8px; border-radius: 50%; background: #10b981; box-shadow: 0 0 0 4px rgba(110,231,183,0.35); display: inline-block; }
+    .tp-sep { width: 1px; height: 28px; background: rgba(24,34,54,0.12); }
+    .tp-chip { display: inline-flex; align-items: center; gap: 12px; padding: 8px 18px; border-radius: 999px; background: #ffffff; border: 1px solid rgba(24,34,54,0.08); box-shadow: 0 4px 14px rgba(24,34,54,0.07); text-decoration: none; color: inherit; transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
+    .tp-chip:hover { transform: translateY(-2px); border-color: rgba(139,92,246,0.4); box-shadow: 0 10px 24px rgba(91,63,209,0.2); }
+    .tp-chip img { height: 24px; width: auto; max-width: 90px; display: block; object-fit: contain; }
+    .tp-chip img.tp-logo-black { filter: brightness(0) saturate(100%); }
+    .tp-chip b { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: -0.01em; color: #182236; white-space: nowrap; }
+    .tp-chip em { font-style: normal; display: inline-flex; align-items: center; gap: 6px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 10px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #0f7a55; padding: 4px 10px; border-radius: 999px; background: rgba(110,231,183,0.22); border: 1px solid rgba(16,185,129,0.35); }
+    .tp-chip em::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #10b981; display: inline-block; }
+    @media (max-width: 760px) { .tp-strip { border-radius: 24px; padding: 14px 16px; } .tp-sep { display: none; } .tp-label { width: 100%; justify-content: center; } }
+
+    /* Office view switcher */
+    .ov-stage { position: relative; width: 100%; aspect-ratio: 1536 / 900; overflow: hidden; border-radius: 20px; background: #182236; }
+    .ov-stage img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .7s ease; }
+    .ov-stage img.is-active { opacity: 1; }
+    .ov-toggle { display: flex; justify-content: center; gap: 6px; margin: 16px auto 0; padding: 5px; width: fit-content; border-radius: 999px; background: rgba(24,34,54,0.08); border: 1px solid rgba(24,34,54,0.08); }
+    .ov-toggle button { position: relative; overflow: hidden; border: 0; cursor: pointer; padding: 10px 22px; border-radius: 999px; background: transparent; color: #3d4a66; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 700; transition: background .3s ease, color .3s ease, box-shadow .3s ease; }
+    .ov-toggle button[aria-pressed="true"] { background: linear-gradient(135deg, #8b5cf6, #3b82f6); color: #ffffff; box-shadow: 0 6px 16px rgba(91,63,209,0.3); }
   </style>
 </head>
 <body data-lang="en">
@@ -153,30 +155,22 @@
       </div>
     </section>
 
-    <!-- Trusted Partners -->
+    <!-- Trusted Partners strip -->
     <section class="tp-section" id="partners" aria-label="Startup programs">
       <div class="wrap">
-        <div class="tp-panel">
-          <span class="tp-kicker"><i></i><span class="en">Backed by startup programs</span><span class="es">Respaldados por programas para startups</span></span>
-          <h2 class="tp-title en">TaskVille is part of the startup programs of <span class="tp-grad">Composio and AWS.</span></h2>
-          <h2 class="tp-title es">TaskVille forma parte de los programas para startups de <span class="tp-grad">Composio y AWS.</span></h2>
-          <p class="tp-sub en">We build on the same infrastructure and integration layer that fast-growing teams trust, so your agents connect to your tools reliably and scale with you.</p>
-          <p class="tp-sub es">Construimos sobre la misma infraestructura y capa de integraciones en la que confían los equipos de mayor crecimiento, para que tus agentes se conecten a tus herramientas de forma confiable y escalen contigo.</p>
-
-          <div class="tp-logos">
-            <a class="tp-logo-card" href="https://composio.dev/startups" target="_blank" rel="noopener">
-              <span class="tp-member"><i></i><span class="en">Program member</span><span class="es">Miembro del programa</span></span>
-              <img class="tp-logo-black" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/composio/default.svg" alt="Composio" loading="lazy">
-              <span class="tp-program">Composio for Startups</span>
-              <span class="tp-logo-tag"><span class="en">250+ integrations →</span><span class="es">250+ integraciones →</span></span>
-            </a>
-            <a class="tp-logo-card" href="https://aws.amazon.com/startups" target="_blank" rel="noopener">
-              <span class="tp-member"><i></i><span class="en">Program member</span><span class="es">Miembro del programa</span></span>
-              <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/aws/default.svg" alt="AWS" loading="lazy">
-              <span class="tp-program">AWS Startups</span>
-              <span class="tp-logo-tag"><span class="en">Cloud infrastructure →</span><span class="es">Infraestructura en la nube →</span></span>
-            </a>
-          </div>
+        <div class="tp-strip">
+          <span class="tp-label"><i></i><span class="en">Part of the startup programs of</span><span class="es">Parte de los programas para startups de</span></span>
+          <span class="tp-sep" aria-hidden="true"></span>
+          <a class="tp-chip" href="https://composio.dev/startups" target="_blank" rel="noopener">
+            <img class="tp-logo-black" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/composio/default.svg" alt="Composio" loading="lazy">
+            <b>Composio for Startups</b>
+            <em><span class="en">Member</span><span class="es">Miembro</span></em>
+          </a>
+          <a class="tp-chip" href="https://aws.amazon.com/startups" target="_blank" rel="noopener">
+            <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/aws/default.svg" alt="AWS" loading="lazy">
+            <b>AWS Startups</b>
+            <em><span class="en">Member</span><span class="es">Miembro</span></em>
+          </a>
         </div>
       </div>
     </section>
@@ -193,8 +187,15 @@
             <p class="es">En vez de pestañas dispersas de chat, TaskVille estructura las labores en estaciones claras. Cada persona ve qué borradores están pendientes, quién autorizó y el avance en cada piso.</p>
           </div>
 
-          <div class="office-preview">
-            <img src="taskville-office-preview.jpg" alt="TaskVille pixel-art virtual office with agents and human team members" width="1536" height="950">
+          <div class="office-preview" id="officeSwitcher">
+            <div class="ov-stage">
+              <img class="is-active" data-view="0" src="https://7c29b10336c7c5ef7e59bc7209cbaf71.cdn.bubble.io/f1792487210861x729834624181186200/Captura%20de%20pantalla%202026-10-20%20a%20la%28s%29%203.03.02%E2%80%AFa.m..png" alt="TaskVille pixel-art virtual office with agents at their desks" width="1536" height="904">
+              <img data-view="1" src="https://7c29b10336c7c5ef7e59bc7209cbaf71.cdn.bubble.io/f1792534249159x687927094074796200/Captura%20de%20pantalla%202026-10-20%20a%20la%28s%29%204.10.41%E2%80%AFp.m..png" alt="TaskVille office map view showing agents, connected apps and live energy" width="1536" height="886" loading="lazy">
+            </div>
+            <div class="ov-toggle" role="group" aria-label="Office view">
+              <button type="button" data-view="0" aria-pressed="true"><span class="en">Office floor</span><span class="es">Piso de oficina</span></button>
+              <button type="button" data-view="1" aria-pressed="false"><span class="en">Team map</span><span class="es">Mapa del equipo</span></button>
+            </div>
           </div>
 
           <div class="office-meta-bar">
@@ -634,5 +635,30 @@
 
   <script src="script.js"></script>
   <script src="motion.js" defer></script>
+  <script>
+    (function () {
+      var box = document.getElementById('officeSwitcher');
+      if (!box) return;
+      var imgs = box.querySelectorAll('.ov-stage img');
+      var btns = box.querySelectorAll('.ov-toggle button');
+      var cur = 0, timer = null;
+      function show(i) {
+        cur = i;
+        imgs.forEach(function (im, n) { im.classList.toggle('is-active', n === i); });
+        btns.forEach(function (b, n) { b.setAttribute('aria-pressed', String(n === i)); });
+      }
+      function start() {
+        stop();
+        timer = setInterval(function () { show((cur + 1) % imgs.length); }, 5000);
+      }
+      function stop() { if (timer) { clearInterval(timer); timer = null; } }
+      btns.forEach(function (b, n) {
+        b.addEventListener('click', function () { show(n); start(); });
+      });
+      box.addEventListener('mouseenter', stop);
+      box.addEventListener('mouseleave', start);
+      start();
+    })();
+  </script>
 </body>
 </html>
