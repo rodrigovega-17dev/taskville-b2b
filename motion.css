@@ -1,47 +1,34 @@
-/* Motion layer: only active when JS adds .motion-ready and the user has no reduced-motion preference */
-
-a:focus-visible,
-button:focus-visible,
-summary:focus-visible {
-  outline: 2px solid #3b82f6;
-  outline-offset: 3px;
-  border-radius: 4px;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .motion-ready .reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
-    will-change: opacity, transform;
-  }
-
-  .motion-ready .reveal.is-visible {
-    opacity: 1;
-    transform: none;
-  }
-
-  .motion-ready .float {
-    animation: taskvilleFloat 6s ease-in-out infinite;
-  }
-
-  @keyframes taskvilleFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
-
-  details[open] > :not(summary) {
-    animation: taskvilleFadeIn 0.35s ease;
-  }
-
-  @keyframes taskvilleFadeIn {
-    from { opacity: 0; transform: translateY(-6px); }
-    to { opacity: 1; transform: none; }
-  }
-
-  .motion-ready .card:hover,
-  .motion-ready .metric:hover {
-    transform: translateY(-4px);
-    transition: transform 0.25s ease;
-  }
+/* TaskVille motion layer v2. Hidden states only exist under .motion-ready, and JS never hides what is already in view, so there is no flash. */
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #3b82f6;outline-offset:3px;border-radius:4px}
+.tv-progress{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 0;transform:scaleX(0);background:linear-gradient(90deg,#8b5cf6,#3b82f6,#67e8f9);z-index:9999;pointer-events:none}
+@media (prefers-reduced-motion:no-preference){
+@keyframes tvRise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes tvFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes tvDrift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@keyframes tvPulse{0%{box-shadow:0 0 0 0 rgba(110,231,183,.65)}100%{box-shadow:0 0 0 12px rgba(110,231,183,0)}}
+@keyframes tvShine{from{left:-60%}to{left:140%}}
+.hero-copy>*{animation:tvRise .8s cubic-bezier(.2,.7,.2,1) both}
+.hero-copy>:nth-child(2){animation-delay:.08s}
+.hero-copy>:nth-child(3){animation-delay:.16s}
+.hero-copy>:nth-child(4){animation-delay:.24s}
+.hero-copy>:nth-child(5){animation-delay:.32s}
+.hero-copy>:nth-child(6){animation-delay:.4s}
+.hero-visual{animation:tvRise 1s .2s cubic-bezier(.2,.7,.2,1) both}
+.tower-freestanding{animation:tvFloat 7s ease-in-out infinite}
+.gradient-text{background-size:220% 220%;animation:tvDrift 9s ease infinite}
+.badge-pill .dot{animation:tvPulse 2s ease-out infinite}
+.floor-callout{animation:tvFloat 6s ease-in-out infinite}
+.floor-callout.callout-ops{animation-delay:-2s}
+.floor-callout.callout-marketing{animation-delay:-4s}
+.btn{position:relative;overflow:hidden}
+.btn-primary::after{content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg);pointer-events:none}
+.btn-primary:hover::after{animation:tvShine .8s ease}
+.btn{transition:transform .2s ease,box-shadow .2s ease}
+.btn:hover{transform:translateY(-2px)}
+.motion-ready .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease var(--d,0s),transform .7s cubic-bezier(.2,.7,.2,1) var(--d,0s)}
+.motion-ready .reveal.is-visible{opacity:1;transform:none}
+.tilt{transition:transform .18s ease-out,box-shadow .25s ease;will-change:transform}
+.motion-ready .tilt.is-done{transition:transform .18s ease-out,box-shadow .25s ease}
+.pricing-card.popular{animation:tvGlow 4s ease-in-out infinite}
+@keyframes tvGlow{0%,100%{box-shadow:0 10px 40px rgba(139,92,246,.18)}50%{box-shadow:0 14px 56px rgba(59,130,246,.34)}}
 }
