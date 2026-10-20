@@ -1,0 +1,36 @@
+name: Apply B2B landing update
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update landing page
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('index.html')
+          source = path.read_text()
+          changes = {
+              '  <link rel="stylesheet" href="styles.css">': '  <link rel="stylesheet" href="styles.css">\n  <link rel="stylesheet" href="motion.css">',
+              '  <script src="script.js"></script>': '  <script src="script.js"></script>\n  <script src="motion.js" defer></script>',
+              'Energy represents standard processing credits for day-to-day language model operations, document parsing, and agent actions. Diamonds represent advanced deep-reasoning or multi-modal analysis tokens. Every monthly plan includes generous allowances designed to comfortably cover everyday business operations.': 'Diamonds are your hiring budget. Hiring an agent spends them, and letting that agent go refunds them. Energy is your daily usage for agent messages, and it refills every day. Your plan sets how much of each you get.',
+              'Energy corresponde a los créditos estándar para procesamiento cotidiano de modelos de lenguaje, lectura de documentos y acciones de los agentes. Diamonds cubre tareas de razonamiento profundo o análisis multimodal. Cada plan incluye una cuota amplia diseñada para la operación diaria de tu equipo.': 'Los diamantes son tu presupuesto para contratar agentes. Contratar un agente los gasta, y despedirlo los devuelve. Energy es tu uso diario para los mensajes de los agentes y se recarga cada día. Tu plan define cuánto recibes de cada uno.'
+          }
+          for old, new in changes.items():
+              if old not in source:
+                  raise SystemExit(f'Missing expected text: {old[:60]}')
+              source = source.replace(old, new, 1)
+          path.write_text(source)
+          PY
+      - name: Commit the update
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git rm .github/workflows/apply-b2b-landing-update.yml
+          git add index.html
+          git commit -m "fix: clarify Diamonds and activate landing motion"
+          git push
